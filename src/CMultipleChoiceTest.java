@@ -31,10 +31,10 @@ public class CMultipleChoiceTest {
     public void testControlMultipleChoice ()
     {
     CMultipleChoice exercise = new CMultipleChoice(name,questions,answers);
-        Assert.assertEquals("Result should be 100.0%",100.0,exercise.control(testAnswersTrue),0.0);
-        Assert.assertEquals("Result should be 0.0%",0.0,exercise.control(testAnswersFalse),0.0);
-        Assert.assertEquals("Result should be 75.0%",75.0,exercise.control(testAnswersOneFalse),0.0);
-        Assert.assertEquals("Result should be -1%",-1.0,exercise.control(testAnswersSize),0.0);
+        Assert.assertEquals("Result should be 100.0%",100.0,exercise.controlMultipleChoice(testAnswersTrue),0.0);
+        Assert.assertEquals("Result should be 0.0%",0.0,exercise.controlMultipleChoice(testAnswersFalse),0.0);
+        Assert.assertEquals("Result should be 75.0%",75.0,exercise.controlMultipleChoice(testAnswersOneFalse),0.0);
+        Assert.assertEquals("Result should be -1%",-1.0,exercise.controlMultipleChoice(testAnswersSize),0.0);
     }
 
     @Test

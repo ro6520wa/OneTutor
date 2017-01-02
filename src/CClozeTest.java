@@ -29,10 +29,10 @@ public class CClozeTest {
     public void testControlCCloze ()
     {
         CCloze exercise = new CCloze(name,questions,answers);
-        Assert.assertEquals("Result should be 100.0%",100.0,exercise.control(testAnswersTrue),0.0);
-        Assert.assertEquals("Result should be 0.0%",0.0,exercise.control(testAnswersFalse),0.0);
-        Assert.assertEquals("Result should be 75.0%",75.0,exercise.control(testAnswersOneFalse),0.0);
-        Assert.assertEquals("Result should be -1%",-1.0,exercise.control(testAnswersSize),0.0);
+        Assert.assertEquals("Result should be 100.0%",100.0,exercise.controlCloze(testAnswersTrue),0.0);
+        Assert.assertEquals("Result should be 0.0%",0.0,exercise.controlCloze(testAnswersFalse),0.0);
+        Assert.assertEquals("Result should be 75.0%",75.0,exercise.controlCloze(testAnswersOneFalse),0.0);
+        Assert.assertEquals("Result should be -1%",-1.0,exercise.controlCloze(testAnswersSize),0.0);
     }
 
     @Test

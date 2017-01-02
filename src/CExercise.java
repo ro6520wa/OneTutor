@@ -27,7 +27,7 @@ public abstract class CExercise
         return m_questions;
     }
 
-    public void setM_questions(ArrayList<String> m_questions) {
-        this.m_questions = m_questions;
+    public void setM_questions(ArrayList<String> _questions) {
+        this.m_questions = _questions;
     }
 }

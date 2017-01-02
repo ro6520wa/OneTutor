@@ -21,11 +21,11 @@ public class CMultipleChoice extends CExercise
         return m_correctAnswers;
     }
 
-    public void setM_correctAnswers(ArrayList<Boolean> m_correctAnswers) {
-        this.m_correctAnswers = m_correctAnswers;
+    public void setM_correctAnswers(ArrayList<Boolean> _correctAnswers) {
+        this.m_correctAnswers = _correctAnswers;
     }
 
-    public int control(ArrayList<Boolean> _answers)
+    public int controlMultipleChoice(ArrayList<Boolean> _answers)
     {
         if (_answers.size()!= this.m_correctAnswers.size())
         {

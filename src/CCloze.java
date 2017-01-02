@@ -21,11 +21,11 @@ public class CCloze extends CExercise
         return m_correctAnswers;
     }
 
-    public void setM_correctAnswers(ArrayList<String> m_correctAnswers) {
-        this.m_correctAnswers = m_correctAnswers;
+    public void setM_correctAnswers(ArrayList<String> _correctAnswers) {
+        this.m_correctAnswers = _correctAnswers;
     }
 
-    public int control(ArrayList<String> _answers)
+    public int controlCloze(ArrayList<String> _answers)
     {
         if (this.m_correctAnswers.size() != _answers.size())
         {
