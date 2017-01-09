@@ -11,10 +11,10 @@ public abstract class CExercise
     protected ArrayList<String> m_questions;
 
     //constructor
-    protected CExercise(String name, ArrayList<String> questions)
+    protected CExercise(String _name, ArrayList<String> _questions)
     {
-        this.m_name = name;
-        this.m_questions = questions;
+        this.m_name = _name;
+        this.m_questions = _questions;
     }
 
     //methods
