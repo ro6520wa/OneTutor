@@ -1,5 +1,5 @@
 /**
- * Created by ronwagner on 09.01.17.
+ * Created by ronwagner on 09.01.17
  */
 public abstract class CMember
 {
