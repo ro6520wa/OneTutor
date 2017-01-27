@@ -100,3 +100,4 @@ $RECYCLE.BIN/
 *.lnk
 
 .idea/codeStyleSettings.xml
+.idea/misc.xml
