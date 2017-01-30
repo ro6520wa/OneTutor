@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by ronwagner on 09.01.17
  */
@@ -9,6 +11,7 @@ public class CMember
     private String m_lastname;
     private int m_ID;
     private String m_mail;
+    private ArrayList<CCourse> m_courses;
 
     //constructor
     public CMember(String _firstname,String _lastname,int _ID, String _mail)
@@ -17,6 +20,7 @@ public class CMember
         this.m_lastname = _lastname;
         this.m_ID = _ID;
         this.m_mail = _mail;
+        m_courses = new ArrayList<CCourses>();
     }
 
     //methods
@@ -59,5 +63,23 @@ public class CMember
     public void setM_mail(String m_mail)
     {
         this.m_mail = m_mail;
+    }
+
+    public void addCourse(CCourse _course){
+        this.m_courses.add(_course);
+        return;
+    }
+
+    public boolean removeCourse(CCourse _course){
+        boolean success = false;
+        int i = 0;
+        do{
+            if(this.m_courses.get(i).getM_title() == _course.getM_title()){
+                this.m_courses.remove(i);
+                success = true;
+            }
+            i++;
+        }while(!success && i < this.m_courses.size());
+        return success;
     }
 }
