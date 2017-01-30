@@ -1,7 +1,7 @@
 /**
  * Created by ronwagner on 09.01.17
  */
-public abstract class CMember
+public class CMember
 {
 
     //attributes
@@ -11,7 +11,7 @@ public abstract class CMember
     private String m_mail;
 
     //constructor
-    protected CMember(String _firstname,String _lastname,int _ID, String _mail)
+    public CMember(String _firstname,String _lastname,int _ID, String _mail)
     {
         this.m_firstname = _firstname;
         this.m_lastname = _lastname;

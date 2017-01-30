@@ -10,10 +10,10 @@ public class CCloze extends CExercise
     private ArrayList<String> m_correctAnswers;
 
     //constructor
-    public CCloze (String name, ArrayList<String> questions, ArrayList<String> answers)
+    public CCloze (String _name, ArrayList<String> _questions, ArrayList<String> _answers)
     {
-        super(name,questions);
-        this.m_correctAnswers = answers;
+        super(_name,_questions);
+        this.m_correctAnswers = _answers;
     }
 
     //methods

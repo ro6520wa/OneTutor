@@ -17,12 +17,12 @@ public class CPlatform {
     }
 
     //methods
-    public CPupil register(String firstname, String lastname, int ID, String mail){
+   /* public CPupil register(String firstname, String lastname, int ID, String mail){
         CPermission permission_pupil = new CPermission(false, true, false);
         CPupil pupil = new CPupil(firstname, lastname, ID, mail, permission_pupil);
         addMember(pupil);
         return pupil;
-    }
+    }*/
 
     public boolean login(CMember member){
         boolean success = false;
@@ -55,7 +55,7 @@ public class CPlatform {
         return success;
     }
 
-    public void addAdmin(CAdmin admin){
+    /*public void addAdmin(CAdmin admin){
         this.m_admins.add(admin);
         return;
     }
@@ -70,6 +70,6 @@ public class CPlatform {
             }
         }while(success == false && i < this.m_admins.size());
         return success;
-    }
+    }*/
 
 }

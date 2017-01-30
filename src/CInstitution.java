@@ -22,11 +22,11 @@ public class CInstitution {
     //methods
 
     //UNFINISHED
-    public CCourse addCourse() {
+    /*public CCourse addCourse() {
         CCourse course = new CCourse();
         this.m_course.add(course);
         return course;
-    }
+    }*/
 
     public boolean deleteCourse(CCourse course) {
         boolean success = false;
@@ -59,7 +59,7 @@ public class CInstitution {
         return success;
     }
 
-    public void addAdmin(CAdmin admin){
+    /*public void addAdmin(CAdmin admin){
         this.m_admins.add(admin);
         return;
     }
@@ -74,7 +74,7 @@ public class CInstitution {
             }
         }while(success == false && i < this.m_admins.size());
         return success;
-    }
+    }*/
 
     public void setM_ID(int ID){
         this.m_ID = ID;
