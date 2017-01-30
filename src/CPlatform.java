@@ -23,11 +23,11 @@ public class CPlatform {
         return member;
     }
 
-    public boolean login(CMember member){
+    public boolean login(String _mail){
         boolean success = false;
         int i = 0;
         do{
-            if(this.m_member.get(i).getM_ID() == member.getM_ID()){
+            if(this.m_member.get(i).getM_mail() == _mail){
                 success = true;
             }
         }while(!success && i < this.m_member.size());
@@ -35,35 +35,45 @@ public class CPlatform {
     }
     //LOGOUT NEEDED!?
 
-    public void addMember(CMember member){
-        this.m_member.add(member);
+    public void addMember(CMember _member){
+        this.m_member.add(_member);
         return;
     }
 
-    public boolean deleteMember(CMember member){
+    public boolean deleteMember(CMember _member){
         boolean success = false;
         int i = 0;
+        //check if the _member actually is in the member list of the platform
         do{
-            if(this.m_member.get(i).getM_ID() == member.getM_ID()){
+            if(this.m_member.get(i).getM_ID() == _member.getM_ID()){
+                int j = 0;
+                //if so, remove him from all his courses
+                do{
+                    _member.getCourses().get(j).getM_members().remove(_member);
+                    j++;
+                }while(j < this.m_member.get(i).getCourses().size());
+                //and delete him from the member list and all reference to himself
                 this.m_member.remove(i);
                 success = true;
-                member = null;
+                _member = null;
             }
             i++;
         }while(!success && i < this.m_member.size());
         return success;
     }
 
-    public void addAdmin(CMember admin){
-        this.m_admins.add(admin);
+    public void addAdmin(CMember _admin){
+        this.m_admins.add(_admin);
         return;
     }
 
-    public boolean deleteAdmin(CMember admin){
+    //admins can only remove themselves or get deleted directly in the database by us
+    public boolean removeAdmin(CMember _admin){
         boolean success = false;
         int i = 0;
+        //checking if the member calling the function is actually an admin
         do {
-            if (this.m_admins.get(i).getM_ID() == admin.getM_ID()){
+            if (this.m_admins.get(i).getM_ID() == _admin.getM_ID()){
                 this.m_admins.remove(i);
                 success = true;
             }

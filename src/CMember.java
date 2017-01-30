@@ -65,6 +65,8 @@ public class CMember
         this.m_mail = m_mail;
     }
 
+    public ArrayList<CCourse> getCourses(){return m_courses;}
+
     public void addCourse(CCourse _course){
         this.m_courses.add(_course);
         return;
