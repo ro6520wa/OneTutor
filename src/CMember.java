@@ -20,7 +20,7 @@ public class CMember
         this.m_lastname = _lastname;
         this.m_ID = _ID;
         this.m_mail = _mail;
-        m_courses = new ArrayList<CCourses>();
+        m_courses = new ArrayList<CCourse>();
     }
 
     //methods
