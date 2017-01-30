@@ -23,7 +23,7 @@ public class CMember
         m_courses = new ArrayList<CCourse>();
     }
 
-    //methods
+    //
 
     public String getM_firstname()
     {

@@ -7,11 +7,12 @@ import java.util.ArrayList;
 public class CCourse {
 
     //constructor
-    public CCourse (String _title, CMember _courseAdmin)
+    public CCourse (String _title, CMember _courseAdmin, int _InstitutionID)
     {
         this.m_title = _title;
         this.m_admin = _courseAdmin;
         this.m_license = new CLicense();
+        this.m_InstitutionID = _InstitutionID;
 
         this.m_exercises = new ArrayList<CExercise>();
         this.m_materials = new ArrayList<CMaterial>();
@@ -25,8 +26,14 @@ public class CCourse {
     private ArrayList<CExercise> m_exercises;
     private ArrayList<CMember> m_members;
     private ArrayList<CMaterial> m_materials;
+    private int m_InstitutionID;
 
     //methods
+
+
+    public int getM_InstitutionID() {
+        return m_InstitutionID;
+    }
 
     public String getM_title() {
         return m_title;
@@ -90,6 +97,23 @@ public class CCourse {
         return success;
     }
 
+    public boolean removeExercise(int _index, CMember _member)
+    {
+        boolean success = false;
+        int listIndex = _index - 1;
+
+        if (this.m_admin.getM_ID() == _member.getM_ID())
+        {
+            if ((this.getM_exercises().size() - listIndex >= 0) && (listIndex >= 0))
+            {
+                this.m_exercises.remove(listIndex);
+                return success = true;
+            }
+        }
+
+        return success;
+    }
+
     public int controlExercise (int _index, ArrayList _answers)
     {
         int result = 0;
@@ -109,6 +133,11 @@ public class CCourse {
         }
 
         return result;
+    }
+
+    public void addMember(CMember _member)
+    {
+        this.m_members.add(_member);
     }
 }
 
