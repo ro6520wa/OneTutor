@@ -80,4 +80,44 @@ public class CPlatform {
         }while(!success && i < this.m_admins.size());
         return success;
     }
+
+    //return the ID so the calling function/user knows what institution he just generated
+    public int addInstitution(){
+        //for our uses it is enough to just generate a random ID, with higher numbers of institutions we would implement an autoincrement
+        CLicense license = new CLicense();
+        int ID = license.getM_key();
+        CInstitution institution = new CInstitution(ID);
+        m_institutions.add(institution);
+        return ID;
+    }
+
+    //returns true when the institution with the given ID could be found and removed. returns false if there's no institution with the given ID
+    public boolean removeInstitution(int _ID){
+        CInstitution institution = getInstitutionByID(_ID);
+        if(institution != null){
+            m_institutions.remove(institution);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    //return the Institution belonging to the ID given, if there's none we return null
+    public CInstitution getInstitutionByID(int _ID){
+        CInstitution institution = null;
+        boolean success = false;
+        int i = 0;
+        do{
+            if(m_institutions.get(i).getM_ID() == _ID){
+                institution = m_institutions.get(i);
+                success = true;
+            }
+            i++;
+        }while(!success && i < m_institutions.size());
+        if(success){
+            return institution;
+        }else{
+            return null;
+        }
+    }
 }
