@@ -4,7 +4,7 @@
 
 import java.util.ArrayList;
 
-public class CMultipleChoice extends CExercise
+    public class CMultipleChoice extends CExercise
 {
     //additional attribute
     private ArrayList<Boolean> m_correctAnswers;

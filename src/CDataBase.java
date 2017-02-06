@@ -39,5 +39,6 @@ public class CDataBase {
 
     //test Element for CCourse
     public static final String titleCourse = "newCourse";
+    public static final int InstitutionID = 9876;
 
 }

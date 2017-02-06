@@ -12,7 +12,7 @@ public class CCourseTest {
     @Before
     public void setUp()
     {
-        course = new CCourse(CDataBase.titleCourse,CDataBase.testMemberAdmin);
+        course = new CCourse(CDataBase.titleCourse,CDataBase.testMemberAdmin, CDataBase.InstitutionID);
     }
 
     @Test
@@ -20,6 +20,7 @@ public class CCourseTest {
     {
         Assert.assertEquals("Title should be equal to the titleCourse given to the constructor",CDataBase.titleCourse,course.getM_title());
         Assert.assertEquals("Admin ID should be equal to the ID given to the constructor",CDataBase.idAdmin,course.getM_admin().getM_ID());
+        Assert.assertEquals("Institution ID should be equal to the ID given to the constructor",CDataBase.InstitutionID,course.getM_InstitutionID());
     }
 
     @Test
@@ -50,4 +51,13 @@ public class CCourseTest {
     }
 
     //more tests regarding controlExercise and deleteExercise
+
+    @Test
+    public void testSetMaterial ()
+    {
+        String newTitle = "fahrrad";
+        String fileType = "jpg";
+        course.setMaterial(newTitle,fileType,CDataBase.testMemberAdmin);
+        Assert.assertTrue("Material was set.", true);
+    }
 }
