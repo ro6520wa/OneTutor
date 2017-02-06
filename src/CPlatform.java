@@ -17,8 +17,8 @@ public class CPlatform {
     }
 
     //methods
-   public CMember register(String firstname, String lastname, int ID, String mail){
-        CMember member = new CMember(firstname, lastname, ID, mail);
+   public CMember register(String _firstname, String _lastname, int _ID, String _mail){
+        CMember member = new CMember(_firstname, _lastname, _ID, _mail);
         addMember(member);
         return member;
     }
