@@ -72,6 +72,15 @@ public class CInstitution {
         return success;
     }
 
+    public boolean logoutCourse(CMember _member, CCourse _course){
+        boolean success = false;
+        if(_course.getM_members().contains(_member)){
+            _course.removeMember(_member);
+            success = true;
+        }
+        return success;
+    }
+
     public void addAdmin(CMember admin){
         this.m_admins.add(admin);
         return;
