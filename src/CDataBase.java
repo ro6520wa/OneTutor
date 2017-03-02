@@ -1,3 +1,4 @@
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -6,7 +7,7 @@ import java.util.Arrays;
  */
 public class CDataBase {
 
-    //Member for tests
+    //Member for testing
     public static final String firstName = "Max";
     public static final String lastName = "Mustermann";
     public static final int idAdmin = 1234;
@@ -37,8 +38,13 @@ public class CDataBase {
     public static final ArrayList<String> testAnswersOneFalseCloze = new ArrayList<String>(Arrays.asList("Answer1","Answer2","Answer3","falseAnswer"));
     public static final ArrayList<String> testAnswersSizeCloze = new ArrayList<String>(Arrays.asList("Answer1","Answer2"));
 
-    //test Element for CCourse
+    //test elements for CCourse
     public static final String titleCourse = "newCourse";
     public static final int InstitutionID = 9876;
 
+    public static final String TestFileName = "Test";
+    public static final String TestFileType = "png";
+
+    public static final String NewTestFileName = "Test";
+    public static final String NewTestFileType = "pdf";
 }
