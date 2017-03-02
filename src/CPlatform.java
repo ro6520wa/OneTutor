@@ -18,9 +18,22 @@ public class CPlatform {
 
     //methods
    public CMember register(String _firstname, String _lastname, int _ID, String _mail){
-        CMember member = new CMember(_firstname, _lastname, _ID, _mail);
-        addMember(member);
-        return member;
+        int i = 0;
+        boolean success = false;
+        while(i < this.m_member.size() && !success){
+            if(this.m_member.get(i).getM_mail() == _mail){
+                success = true;
+            }
+            i++;
+        }
+        if (success){
+            return null;
+        }
+        else {
+            CMember member = new CMember(_firstname, _lastname, _ID, _mail);
+            addMember(member);
+            return member;
+        }
     }
 
     public boolean login(String _mail){
@@ -30,6 +43,7 @@ public class CPlatform {
             if(this.m_member.get(i).getM_mail() == _mail){
                 success = true;
             }
+            i++;
         }while(!success && i < this.m_member.size());
         return success;
     }
@@ -40,26 +54,17 @@ public class CPlatform {
         return;
     }
 
-    public boolean deleteMember(CMember _member){
-        boolean success = false;
-        int i = 0;
-        //check if the _member actually is in the member list of the platform
-        do{
-            if(this.m_member.get(i).getM_ID() == _member.getM_ID()){
-                int j = 0;
-                //if so, remove him from all his courses
-                do{
-                    _member.getCourses().get(j).getM_members().remove(_member);
-                    j++;
-                }while(j < this.m_member.get(i).getCourses().size());
-                //and delete him from the member list and all reference to himself
-                this.m_member.remove(i);
-                success = true;
-                _member = null;
-            }
-            i++;
-        }while(!success && i < this.m_member.size());
-        return success;
+    public void deleteMember(CMember _member){
+        int j = 0;
+        //remove _member from all his courses
+        while (j < _member.getCourses().size()) {
+            _member.getCourses().get(j).getM_members().remove(_member);
+            j++;
+        }
+        //and delete him from the member list and all reference to himself
+        this.m_member.remove(_member);
+        _member = null;
+        return;
     }
 
     public void addAdmin(CMember _admin){
@@ -119,5 +124,9 @@ public class CPlatform {
         }else{
             return null;
         }
+    }
+
+    public int getMemberListSize(){
+        return this.m_member.size();
     }
 }

@@ -13,6 +13,7 @@ public class CDataBase {
     public static final int idAdmin = 1234;
     public static final int idNoAdmin = 5678;
     public static final String mail = "test@mail.com";
+    public static final String mail_wrong = "wrong@mail.com";
     public static final CMember testMemberAdmin = new CMember(firstName,lastName,idAdmin,mail);
     public static final CMember testMemberNoAdmin = new CMember(firstName,lastName,idNoAdmin,mail);
 
