@@ -1,11 +1,15 @@
 /**
- * Created by kevin on 22.12.2016.
+ * This class is intended to just store all necessary information about a material that has been uploaded to a course.
+ *
+ * @author Kevin Kosinski
  */
 
 
 public class CMaterial {
 
-    //constructor
+    /**************
+     *CONSTRUCTOR
+     *************/
     protected CMaterial(String _name, String _filePath, String _fileType, int _ID)
     {
         this.m_name = _name;
@@ -14,14 +18,18 @@ public class CMaterial {
         this.m_ID = _ID;
     }
 
-    //attributes
+    /**************
+     *ATTRIBUTES
+     *************/
     private String m_name;
     private String m_filePath;
     private String m_fileType;
     private  int m_ID;
 
 
-    //methods
+    /**************
+     *METHODS
+     *************/
     public String getM_name() {
         return m_name;
     }

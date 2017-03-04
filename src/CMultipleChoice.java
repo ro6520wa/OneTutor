@@ -1,22 +1,32 @@
 /**
- * Created by kevin on 23.12.2016.
+ * This class inherits from {@link CExercise} and represents a specific form of an exercise within a course.
+ *
+ * @author Kevin Kosinski
+ * @see CExercise
  */
 
 import java.util.ArrayList;
 
     public class CMultipleChoice extends CExercise
-{
-    //additional attribute
-    private ArrayList<Boolean> m_correctAnswers;
+    {
 
-    //constructor
+    /**************
+     *CONSTRUCTOR
+     *************/
     public CMultipleChoice (String name, ArrayList<String> questions, ArrayList<Boolean> answers)
     {
         super(name,questions);
         this.m_correctAnswers = answers;
     }
 
-    //methods
+    /**************
+     *ATTRIBUTES
+     *************/
+    private ArrayList<Boolean> m_correctAnswers;
+
+    /**************
+     *METHODS
+     *************/
     public ArrayList<Boolean> getM_correctAnswers() {
         return m_correctAnswers;
     }
@@ -25,7 +35,14 @@ import java.util.ArrayList;
         this.m_correctAnswers = _correctAnswers;
     }
 
-    public int controlMultipleChoice(ArrayList<Boolean> _answers)
+    /**
+     * Returns the result in percentage based on the given answers.
+     * If the size of the given answers is not equal to the correct answers it returns the invalid value -1.
+     *
+     * @param   _answers    Array of boolean which is compared with the correct answers
+     * @return              Result represented by a float value
+     */
+    public float controlMultipleChoice(ArrayList<Boolean> _answers)
     {
         if (_answers.size()!= this.m_correctAnswers.size())
         {
@@ -43,7 +60,13 @@ import java.util.ArrayList;
             return ((correct*100)/this.m_correctAnswers.size());
         }
     }
-
+    /**
+     * Returns true or false, depending on whether the question and corresponding answer were removed successful.
+     * In case the given index is out of bounds it returns false.
+     *
+     * @param   _index  integer which specifies the question/answer to be deleted
+     * @return          true if questions/answer are removed successful, else false
+     */
     public boolean removeQuestionAndAnswer (int _index)
     {
         boolean result = false;

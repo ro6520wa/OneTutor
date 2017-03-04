@@ -1,5 +1,11 @@
 /**
- * Created by kevin on 21.12.2016.
+ * This class is an abstract base class for {@link CCloze} and {@link CMultipleChoice}.
+ * It provides all basic attributes and methods to represent an exercise of a course.
+ *
+ * @author  Kevin Kosinski
+ * @see     CCloze
+ * @see     CMultipleChoice
+ * @see     java.util.Random
  */
 
 import java.util.ArrayList;
@@ -7,15 +13,9 @@ import java.util.Random;
 
 public abstract class CExercise
 {
-    //attributes
-    protected String m_name;
-    protected ArrayList<String> m_questions;
-    protected int m_ID;
-    Random m_rand = new Random();
-
-
-
-    //constructor
+    /**************
+     *CONSTRUCTOR
+     *************/
     protected CExercise(String _name, ArrayList<String> _questions)
     {
         this.m_name = _name;
@@ -24,7 +24,17 @@ public abstract class CExercise
 
     }
 
-    //methods
+    /**************
+     *ATTRIBUTES
+     *************/
+    protected String m_name;
+    protected ArrayList<String> m_questions;
+    protected int m_ID;
+    Random m_rand = new Random();
+
+    /**************
+     *METHODS
+     *************/
     public String getM_name()
     {
         return m_name;

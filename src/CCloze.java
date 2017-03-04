@@ -1,22 +1,32 @@
 /**
- * Created by kevin on 23.12.2016.
+ * This class inherits from {@link CExercise} and represents a specific form of an exercise within a course.
+ *
+ * @author Kevin Kosinski
+ * @see CExercise
  */
 
 import java.util.ArrayList;
 
 public class CCloze extends CExercise
 {
-    //additional attribute
-    private ArrayList<String> m_correctAnswers;
 
-    //constructor
+    /**************
+     *CONSTRUCTOR
+     *************/
     public CCloze (String _name, ArrayList<String> _questions, ArrayList<String> _answers)
     {
         super(_name,_questions);
         this.m_correctAnswers = _answers;
     }
 
-    //methods
+    /**************
+     *ATTRIBUTES
+     *************/
+    private ArrayList<String> m_correctAnswers;
+
+    /**************
+     *METHODS
+     *************/
     public ArrayList<String> getM_correctAnswers() {
         return m_correctAnswers;
     }
@@ -25,7 +35,15 @@ public class CCloze extends CExercise
         this.m_correctAnswers = _correctAnswers;
     }
 
-    public int controlCloze(ArrayList<String> _answers)
+
+    /**
+     * Returns the result in percentage based on the given answers.
+     * If the size of the given answers is not equal to the correct answers it returns the invalid value -1.
+     *
+     * @param   _answers    Array of strings which is compared with the correct answers
+     * @return              Result represented by a float value
+     */
+    public float controlCloze(ArrayList<String> _answers)
     {
         if (this.m_correctAnswers.size() != _answers.size())
         {
@@ -44,6 +62,13 @@ public class CCloze extends CExercise
         }
     }
 
+    /**
+     * Returns true or false, depending on whether the question and corresponding answer were removed successful.
+     * In case the given index is out of bounds it returns false.
+     *
+     * @param   _index  integer which specifies the question/answer to be deleted
+     * @return          true if questions/answer are removed successful, else false
+     */
     public boolean removeQuestionAndAnswer (int _index)
     {
         boolean result = false;
