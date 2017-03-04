@@ -2,8 +2,8 @@
  * This is the test class for {@link CMultipleChoice}.
  * It includes tests regarding the control and add/remove question/answer methods.
  *
- * @author Kevin Kosinski
- * @see CMultipleChoice
+ * @author  Kevin Kosinski
+ * @see     CMultipleChoice
  */
 
 

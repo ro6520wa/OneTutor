@@ -5,12 +5,12 @@
  * Each course belongs to an institution and only the administrator of the course is able to add/remove exercises and
  * materials. Apart of that, each member is able to call the "controlExercise" method to have its exercise checked.
  *
- * @author Kevin Kosinski
- * @see CExercise
- * @see CInstitution
- * @see CLicense
- * @see CMaterial
- * @see CMember
+ * @author  Kevin Kosinski
+ * @see     CExercise
+ * @see     CInstitution
+ * @see     CLicense
+ * @see     CMaterial
+ * @see     CMember
  */
 
 
