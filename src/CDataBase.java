@@ -64,4 +64,7 @@ public class CDataBase {
 
     public static final String NewTestFileName = "Test";
     public static final String NewTestFileType = "pdf";
+
+    //test elements for CInstitution
+    public static final int wrongKey = 5;
 }

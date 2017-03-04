@@ -74,14 +74,10 @@ public class CMember
 
     public boolean removeCourse(CCourse _course){
         boolean success = false;
-        int i = 0;
-        do{
-            if(this.m_courses.get(i).getM_title() == _course.getM_title()){
-                this.m_courses.remove(i);
-                success = true;
-            }
-            i++;
-        }while(!success && i < this.m_courses.size());
+        if(this.m_courses.contains(_course)){
+            this.m_courses.remove(_course);
+            success = true;
+        }
         return success;
     }
 }

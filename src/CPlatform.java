@@ -19,14 +19,14 @@ public class CPlatform {
     //methods
    public CMember register(String _firstname, String _lastname, int _ID, String _mail){
         int i = 0;
-        boolean success = false;
-        while(i < this.m_member.size() && !success){
+        boolean mail_used = false;
+        while(i < this.m_member.size() && !mail_used){
             if(this.m_member.get(i).getM_mail() == _mail){
-                success = true;
+                mail_used = true;
             }
             i++;
         }
-        if (success){
+        if (mail_used){
             return null;
         }
         else {
@@ -75,14 +75,11 @@ public class CPlatform {
     //admins can only remove themselves or get deleted directly in the database by us
     public boolean removeAdmin(CMember _admin){
         boolean success = false;
-        int i = 0;
         //checking if the member calling the function is actually an admin
-        do {
-            if (this.m_admins.get(i).getM_ID() == _admin.getM_ID()){
-                this.m_admins.remove(i);
-                success = true;
-            }
-        }while(!success && i < this.m_admins.size());
+        if (this.m_admins.contains(_admin)){
+            this.m_admins.remove(_admin);
+            success = true;
+        }
         return success;
     }
 
