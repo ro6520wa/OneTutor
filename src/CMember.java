@@ -1,19 +1,26 @@
+/**
+ * This class represents the member i.e. the person using OneTutor. They consist of a firstname, a lastname, an ID to uniquely identify them
+ * and determine whether they are an administrator or not, an E-Mail used for their login and a list of courses they are entered in.
+ *
+ * @author Ron Wagner
+ * @see CCourse
+ */
+
+
 import java.util.ArrayList;
 
-/**
- * Created by ronwagner on 09.01.17
- */
 public class CMember
 {
 
-    //attributes
-    private String m_firstname;
-    private String m_lastname;
-    private int m_ID;
-    private String m_mail;
-    private ArrayList<CCourse> m_courses;
-
-    //constructor
+    /**
+     * Class constructor that creates an instance of this class with the given attributes.
+     *
+     * @param _firstname        Character string that represents the firstname of the member
+     * @param _lastname         Character string that represents the latsname of the member
+     * @param _mail             Character String that represents the E-Mail of the member
+     * @param   _ID             Integer value that represents a unique identifier for every instance
+     * @return                  An instance of this class with the specific attributes
+     */
     public CMember(String _firstname,String _lastname,int _ID, String _mail)
     {
         this.m_firstname = _firstname;
@@ -23,8 +30,18 @@ public class CMember
         m_courses = new ArrayList<CCourse>();
     }
 
-    //methods
+    /**************
+     *ATTRIBUTES
+     *************/
+    private String m_firstname;
+    private String m_lastname;
+    private int m_ID;
+    private String m_mail;
+    private ArrayList<CCourse> m_courses;
 
+    /**************
+     *METHODS
+     *************/
     public String getM_firstname()
     {
         return m_firstname;

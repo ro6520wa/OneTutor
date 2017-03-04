@@ -1,11 +1,15 @@
+/**
+ * This is the test class for {@link CPlatform}.
+ * It includes tests regarding the adding institutions, login and register of member.
+ *
+ * @author   Ron Wagner
+ * @see      CMember
+ */
+
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
-/**
- * Created by ronwa on 12.02.2017.
- */
 
 public class CPlatformTest {
 

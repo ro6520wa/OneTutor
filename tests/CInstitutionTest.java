@@ -1,11 +1,15 @@
+/**
+ * This is the test class for {@link CInstitution}.
+ * It includes tests regarding the adding, deleting , login, logout of courses and deleting admins.
+ *
+ * @author   Ron Wagner
+ */
+
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by ronwa on 03.03.2017.
- */
 public class CInstitutionTest {
 
     private CInstitution fherfurt = new CInstitution(1);
