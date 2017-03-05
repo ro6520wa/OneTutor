@@ -2,7 +2,7 @@
  * This is the test class for {@link CCourse}.
  * It includes tests regarding set/control/remove exercises and add/remove material.
  * Before running this class ensure that the test files are located in your home directory.
- * This files can be found under "sonstiges".
+ * This files can be found under "others".
  *
  * @author  Kevin Kosinski
  * @see     CCloze
