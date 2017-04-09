@@ -6,38 +6,38 @@
  * materials. Apart of that, each member is able to call the "controlExercise" method to have its exercise checked.
  *
  * @author  Kevin Kosinski
- * @see     CExercise
- * @see     CInstitution
- * @see     CLicense
- * @see     CMaterial
- * @see     CMember
+ * @see     Exercise
+ * @see     Institution
+ * @see     License
+ * @see     Material
+ * @see     Member
  */
 
 
 import java.io.*;
 import java.util.ArrayList;
 
-public class CCourse {
+public class Course {
 
     /**
      * Class constructor that creates an instance of this class with the given attributes.
-     * It also creates a new instance of {@link CLicense} and adds this course to the admins course list.
+     * It also creates a new instance of {@link License} and adds this course to the admins course list.
      *
      * @param   _title            Character string that represents the name of this course
      * @param   _courseAdmin      Member who is the administrator of the course with the mentioned privileges
      * @param   _InstitutionID    Integer value to identify the institution this course belongs to
      * @return                    An instance of this class with the specific attributes
      */
-    public CCourse (String _title, CMember _courseAdmin, int _InstitutionID)
+    public Course(String _title, Member _courseAdmin, int _InstitutionID)
     {
         this.m_title = _title;
         this.m_admin = _courseAdmin;
-        this.m_license = new CLicense();
+        this.m_license = new License();
         this.m_InstitutionID = _InstitutionID;
 
-        this.m_exercises = new ArrayList<CExercise>();
-        this.m_materials = new ArrayList<CMaterial>();
-        this.m_members = new ArrayList<CMember>();
+        this.m_exercises = new ArrayList<Exercise>();
+        this.m_materials = new ArrayList<Material>();
+        this.m_members = new ArrayList<Member>();
 
         _courseAdmin.addCourse(this);
     }
@@ -46,11 +46,11 @@ public class CCourse {
      *ATTRIBUTES
      *************/
     private String m_title;
-    private CMember m_admin;
-    private CLicense m_license;
-    private ArrayList<CExercise> m_exercises;
-    private ArrayList<CMember> m_members;
-    private ArrayList<CMaterial> m_materials;
+    private Member m_admin;
+    private License m_license;
+    private ArrayList<Exercise> m_exercises;
+    private ArrayList<Member> m_members;
+    private ArrayList<Material> m_materials;
     private int m_InstitutionID;
 
     /**************
@@ -65,7 +65,7 @@ public class CCourse {
         return m_title;
     }
 
-    public boolean setM_title(String m_title, CMember _member) {
+    public boolean setM_title(String m_title, Member _member) {
 
         boolean success = false;
 
@@ -81,32 +81,32 @@ public class CCourse {
         }
     }
 
-    public CMember getM_admin() {
+    public Member getM_admin() {
         return m_admin;
     }
 
-    public CLicense getM_license() {
+    public License getM_license() {
         return m_license;
     }
 
-    public ArrayList<CExercise> getM_exercises() {
+    public ArrayList<Exercise> getM_exercises() {
         return m_exercises;
     }
 
-    public ArrayList<CMember> getM_members() {
+    public ArrayList<Member> getM_members() {
         return m_members;
     }
 
-    public ArrayList<CMaterial> getM_materials() {
+    public ArrayList<Material> getM_materials() {
         return m_materials;
     }
 
-    public void addMember(CMember _member)
+    public void addMember(Member _member)
     {
         this.m_members.add(_member);
     }
 
-    public void removeMember(CMember _member) {this.m_members.remove(_member);}
+    public void removeMember(Member _member) {this.m_members.remove(_member);}
 
     /**
      * This method adds the given exercise to the exercises list of the course.
@@ -116,24 +116,24 @@ public class CCourse {
      * @param   _questions        Array of character strings that represents the questions
      * @param   _answers          Array of character strings that represents the answers
      * @param   _isCloze          Boolean to identify the kind of this exercise, according to this an instance of
-     *                            {@link CCloze} or {@link CMultipleChoice} will be created
+     *                            {@link Cloze} or {@link MultipleChoice} will be created
      * @param   _member           Member that is calling this method, required to validate if it is the administrator
      * @return                    True or false depending on whether the exercise has been added successful
      */
-    public boolean setExercise (String _name, ArrayList<String> _questions, ArrayList _answers, boolean _isCloze, CMember _member)
+    public boolean setExercise (String _name, ArrayList<String> _questions, ArrayList _answers, boolean _isCloze, Member _member)
     {
         boolean success = false;
         if (this.m_admin.getM_ID() == _member.getM_ID())
         {
             if (_isCloze)
             {
-                CExercise newExercise = new CCloze(_name, _questions, _answers);
+                Exercise newExercise = new Cloze(_name, _questions, _answers);
                 this.m_exercises.add(newExercise);
                 return success = true;
             }
             else
             {
-                CExercise newExercise = new CMultipleChoice(_name, _questions, _answers);
+                Exercise newExercise = new MultipleChoice(_name, _questions, _answers);
                 this.m_exercises.add(newExercise);
                 return success = true;
             }
@@ -150,7 +150,7 @@ public class CCourse {
      * @param   _member     Member who is calling this method, required to validate if it is the administrator
      * @return              True or false depending on whether the exercise has been deleted successful
      */
-    public boolean removeExercise(CExercise _exercise, CMember _member)
+    public boolean removeExercise(Exercise _exercise, Member _member)
     {
         boolean success = false;
 
@@ -175,7 +175,7 @@ public class CCourse {
      * @param   _answers    Array of either character strings or boolean that will be compared with the correct answers
      * @return              Float value that represents the result achieved
      */
-    public float controlExercise (CExercise _exercise, ArrayList _answers)
+    public float controlExercise (Exercise _exercise, ArrayList _answers)
     {
         float result = 0;
 
@@ -184,12 +184,12 @@ public class CCourse {
             return result = - 2;
         }
 
-        if (_exercise instanceof CCloze)
+        if (_exercise instanceof Cloze)
         {
-            result =(((CCloze) _exercise).controlCloze(_answers));
+            result =(((Cloze) _exercise).controlCloze(_answers));
         } else
         {
-            result =(((CMultipleChoice) _exercise).controlMultipleChoice(_answers));
+            result =(((MultipleChoice) _exercise).controlMultipleChoice(_answers));
         }
 
         return result;
@@ -200,7 +200,7 @@ public class CCourse {
      * The files to be uploaded has to be located in the callers home directory. Only the administrator of the
      * course is allowed to upload files.<br>
      * It uses the helper function "readFile" to create a byte array that serves as input for the output stream.
-     * If the file has been uploaded successful this method creates a new instance of {@link CMaterial} with the appropriate
+     * If the file has been uploaded successful this method creates a new instance of {@link Material} with the appropriate
      * attributes and adds it to the material list of the course.
      *
      * @param   _title                  Array of character strings that represents the name of the material
@@ -210,7 +210,7 @@ public class CCourse {
      * @throws  IOException             If an input or output exception occurred
      * @throws  FileNotFoundException   If the given file does not exist in the callers home directory
      */
-    public boolean setMaterial(String _title, String _fileType, CMember _member) throws  IOException
+    public boolean setMaterial(String _title, String _fileType, Member _member) throws  IOException
     {
         boolean success = false;
 
@@ -272,7 +272,7 @@ public class CCourse {
             //first: create new material
             //second: add new created material to material list
             int materialID = this.generateID();
-            CMaterial newMaterial = new CMaterial(_title, finalUploadDir, _fileType, materialID);
+            Material newMaterial = new Material(_title, finalUploadDir, _fileType, materialID);
             this.m_materials.add(newMaterial);
 
             return success = true;
@@ -294,7 +294,7 @@ public class CCourse {
      * @param   _member     Member who is calling this method, required to validate if it is the administrator
      * @return              True or false depending on whether the material has been deleted successful
      */
-    public boolean removeMaterial (CMaterial _material, CMember _member)
+    public boolean removeMaterial (Material _material, Member _member)
     {
         boolean success = false;
 

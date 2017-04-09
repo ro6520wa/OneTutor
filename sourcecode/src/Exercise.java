@@ -1,22 +1,22 @@
 /**
- * This class is an abstract base class for {@link CCloze} and {@link CMultipleChoice}.
+ * This class is an abstract base class for {@link Cloze} and {@link MultipleChoice}.
  * It provides all basic attributes and methods to represent an exercise of a course.
  *
  * @author  Kevin Kosinski
- * @see     CCloze
- * @see     CMultipleChoice
+ * @see     Cloze
+ * @see     MultipleChoice
  * @see     java.util.Random
  */
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class CExercise
+public abstract class Exercise
 {
     /**************
      *CONSTRUCTOR
      *************/
-    protected CExercise(String _name, ArrayList<String> _questions)
+    protected Exercise(String _name, ArrayList<String> _questions)
     {
         this.m_name = _name;
         this.m_questions = _questions;

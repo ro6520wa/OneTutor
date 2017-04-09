@@ -1,9 +1,9 @@
 /**
- * This is the test class for {@link CMultipleChoice}.
+ * This is the test class for {@link MultipleChoice}.
  * It includes tests regarding the control and add/remove question/answer methods.
  *
  * @author  Kevin Kosinski
- * @see     CMultipleChoice
+ * @see     MultipleChoice
  */
 
 
@@ -11,23 +11,23 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
-public class CMultipleChoiceTest {
+public class MultipleChoiceTest {
 
-    private CMultipleChoice multipleChoice;
+    private MultipleChoice multipleChoice;
 
     @Before
     public void setUp()
     {
-        multipleChoice = new CMultipleChoice(CDataBase.nameExercise,CDataBase.questions,CDataBase.answersMultipleChoice);
+        multipleChoice = new MultipleChoice(DataBase.nameExercise, DataBase.questions, DataBase.answersMultipleChoice);
     }
 
     @Test
     public void testControlMultipleChoice ()
     {
-        Assert.assertEquals("Result should be 100.0%",100.0, multipleChoice.controlMultipleChoice(CDataBase.testAnswersTrueMultipleChoice),0.0);
-        Assert.assertEquals("Result should be 0.0%",0.0, multipleChoice.controlMultipleChoice(CDataBase.testAnswersFalseMultipleChoice),0.0);
-        Assert.assertEquals("Result should be 75.0%",75.0, multipleChoice.controlMultipleChoice(CDataBase.testAnswersOneFalseMultipleChoice),0.0);
-        Assert.assertEquals("Result should be -1%",-1.0, multipleChoice.controlMultipleChoice(CDataBase.testAnswersSizeMultipleChoice),0.0);
+        Assert.assertEquals("Result should be 100.0%",100.0, multipleChoice.controlMultipleChoice(DataBase.testAnswersTrueMultipleChoice),0.0);
+        Assert.assertEquals("Result should be 0.0%",0.0, multipleChoice.controlMultipleChoice(DataBase.testAnswersFalseMultipleChoice),0.0);
+        Assert.assertEquals("Result should be 75.0%",75.0, multipleChoice.controlMultipleChoice(DataBase.testAnswersOneFalseMultipleChoice),0.0);
+        Assert.assertEquals("Result should be -1%",-1.0, multipleChoice.controlMultipleChoice(DataBase.testAnswersSizeMultipleChoice),0.0);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class CMultipleChoiceTest {
     {
         int currSizeQuestions = multipleChoice.getM_questions().size();
         int currSizeAnswers = multipleChoice.getM_correctAnswers().size();
-        multipleChoice.addQuestionAndAnswer(CDataBase.newQuestion,CDataBase.newAnswerMultipleChoice);
+        multipleChoice.addQuestionAndAnswer(DataBase.newQuestion, DataBase.newAnswerMultipleChoice);
         Assert.assertEquals(currSizeQuestions+1, multipleChoice.getM_questions().size());
         Assert.assertEquals(currSizeAnswers+1, multipleChoice.getM_correctAnswers().size());
     }

@@ -6,14 +6,14 @@
  * @see     java.util.Random
  */
 import java.util.Random;
-public class CLicense {
+public class License {
 
     /**
      * Class constructor that generates a random 6 digit integer value.
      *
      * @return  Instance of this class
      */
-    public CLicense ()
+    public License()
     {
         this.m_key = m_rand.nextInt(1000000);
     };

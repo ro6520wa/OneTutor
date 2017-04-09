@@ -1,19 +1,19 @@
 /**
- * This class inherits from {@link CExercise} and represents a specific form of an exercise within a course.
+ * This class inherits from {@link Exercise} and represents a specific form of an exercise within a course.
  *
  * @author  Kevin Kosinski
- * @see     CExercise
+ * @see     Exercise
  */
 
 import java.util.ArrayList;
 
-    public class CMultipleChoice extends CExercise
+    public class MultipleChoice extends Exercise
     {
 
     /**************
      *CONSTRUCTOR
      *************/
-    public CMultipleChoice (String name, ArrayList<String> questions, ArrayList<Boolean> answers)
+    public MultipleChoice(String name, ArrayList<String> questions, ArrayList<Boolean> answers)
     {
         super(name,questions);
         this.m_correctAnswers = answers;

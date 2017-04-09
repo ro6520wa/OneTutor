@@ -1,19 +1,19 @@
 /**
- * This class inherits from {@link CExercise} and represents a specific form of an exercise within a course.
+ * This class inherits from {@link Exercise} and represents a specific form of an exercise within a course.
  *
  * @author  Kevin Kosinski
- * @see     CExercise
+ * @see     Exercise
  */
 
 import java.util.ArrayList;
 
-public class CCloze extends CExercise
+public class Cloze extends Exercise
 {
 
     /**************
      *CONSTRUCTOR
      *************/
-    public CCloze (String _name, ArrayList<String> _questions, ArrayList<String> _answers)
+    public Cloze(String _name, ArrayList<String> _questions, ArrayList<String> _answers)
     {
         super(_name,_questions);
         this.m_correctAnswers = _answers;

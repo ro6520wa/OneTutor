@@ -5,12 +5,12 @@
  */
 
 
-public class CMaterial {
+public class Material {
 
     /**************
      *CONSTRUCTOR
      *************/
-    protected CMaterial(String _name, String _filePath, String _fileType, int _ID)
+    protected Material(String _name, String _filePath, String _fileType, int _ID)
     {
         this.m_name = _name;
         this.m_filePath = _filePath;

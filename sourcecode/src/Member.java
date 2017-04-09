@@ -3,13 +3,13 @@
  * and determine whether they are an administrator or not, an E-Mail used for their login and a list of courses they are entered in.
  *
  * @author Ron Wagner
- * @see CCourse
+ * @see Course
  */
 
 
 import java.util.ArrayList;
 
-public class CMember
+public class Member
 {
 
     /**
@@ -21,13 +21,13 @@ public class CMember
      * @param   _ID             Integer value that represents a unique identifier for every instance
      * @return                  An instance of this class with the specific attributes
      */
-    public CMember(String _firstname,String _lastname,int _ID, String _mail)
+    public Member(String _firstname, String _lastname, int _ID, String _mail)
     {
         this.m_firstname = _firstname;
         this.m_lastname = _lastname;
         this.m_ID = _ID;
         this.m_mail = _mail;
-        m_courses = new ArrayList<CCourse>();
+        m_courses = new ArrayList<Course>();
     }
 
     /**************
@@ -37,7 +37,7 @@ public class CMember
     private String m_lastname;
     private int m_ID;
     private String m_mail;
-    private ArrayList<CCourse> m_courses;
+    private ArrayList<Course> m_courses;
 
     /**************
      *METHODS
@@ -82,14 +82,14 @@ public class CMember
         this.m_mail = m_mail;
     }
 
-    public ArrayList<CCourse> getCourses(){return m_courses;}
+    public ArrayList<Course> getCourses(){return m_courses;}
 
-    public void addCourse(CCourse _course){
+    public void addCourse(Course _course){
         this.m_courses.add(_course);
         return;
     }
 
-    public boolean removeCourse(CCourse _course){
+    public boolean removeCourse(Course _course){
         boolean success = false;
         if(this.m_courses.contains(_course)){
             this.m_courses.remove(_course);

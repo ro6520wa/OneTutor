@@ -4,13 +4,13 @@
  *
  * @author  Kevin Kosinski
  * @author  Ron Wagner
- * @see     CMember
+ * @see     Member
  */
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CDataBase {
+public class DataBase {
 
     /**************
      *MEMBER FOR TESTING
@@ -21,8 +21,8 @@ public class CDataBase {
     public static final int idNoAdmin = 5678;
     public static final String mail = "test@mail.com";
     public static final String mail_wrong = "wrong@mail.com";
-    public static final CMember testMemberAdmin = new CMember(firstName,lastName,idAdmin,mail);
-    public static final CMember testMemberNoAdmin = new CMember(firstName,lastName,idNoAdmin,mail);
+    public static final Member testMemberAdmin = new Member(firstName,lastName,idAdmin,mail);
+    public static final Member testMemberNoAdmin = new Member(firstName,lastName,idNoAdmin,mail);
 
 
     /**************
@@ -64,6 +64,6 @@ public class CDataBase {
     public static final String NewTestFileName = "Test";
     public static final String NewTestFileType = "pdf";
 
-    //test elements for CInstitution
+    //test elements for Institution
     public static final int wrongKey = 5;
 }

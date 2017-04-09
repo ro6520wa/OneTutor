@@ -1,32 +1,32 @@
 /**
- * This is the test class for {@link CCloze}.
+ * This is the test class for {@link Cloze}.
  * It includes tests regarding the control and add/remove question/answer methods.
  *
  *@author   Kevin Kosinski
- *@see      CCloze
+ *@see      Cloze
  */
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
 
-public class CClozeTest {
+public class ClozeTest {
 
-    private CCloze cloze;
+    private Cloze cloze;
 
     @Before
     public void setUp()
     {
-        cloze = new CCloze(CDataBase.nameExercise,CDataBase.questions,CDataBase.answersCloze);
+        cloze = new Cloze(DataBase.nameExercise, DataBase.questions, DataBase.answersCloze);
     }
 
     @Test
     public void testControlCCloze ()
     {
-        Assert.assertEquals("Result should be 100.0%",100.0, cloze.controlCloze(CDataBase.testAnswersTrueCloze),0.0);
-        Assert.assertEquals("Result should be 0.0%",0.0, cloze.controlCloze(CDataBase.testAnswersFalseCloze),0.0);
-        Assert.assertEquals("Result should be 75.0%",75.0, cloze.controlCloze(CDataBase.testAnswersOneFalseCloze),0.0);
-        Assert.assertEquals("Result should be -1%",-1.0, cloze.controlCloze(CDataBase.testAnswersSizeCloze),0.0);
+        Assert.assertEquals("Result should be 100.0%",100.0, cloze.controlCloze(DataBase.testAnswersTrueCloze),0.0);
+        Assert.assertEquals("Result should be 0.0%",0.0, cloze.controlCloze(DataBase.testAnswersFalseCloze),0.0);
+        Assert.assertEquals("Result should be 75.0%",75.0, cloze.controlCloze(DataBase.testAnswersOneFalseCloze),0.0);
+        Assert.assertEquals("Result should be -1%",-1.0, cloze.controlCloze(DataBase.testAnswersSizeCloze),0.0);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class CClozeTest {
     {
         int currSizeQuestions = cloze.getM_questions().size();
         int currSizeAnswers = cloze.getM_correctAnswers().size();
-        cloze.addQuestionAndAnswer(CDataBase.newQuestion,CDataBase.newAnswerCloze);
+        cloze.addQuestionAndAnswer(DataBase.newQuestion, DataBase.newAnswerCloze);
         Assert.assertEquals(currSizeQuestions+1, cloze.getM_questions().size());
         Assert.assertEquals(currSizeAnswers+1, cloze.getM_correctAnswers().size());
     }
